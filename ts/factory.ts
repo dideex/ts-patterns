@@ -1,9 +1,9 @@
-interface GameCharecter {
+export interface GameCharecter {
   strange: number
   magic: number
 }
 
-class GameCharecterFactory {
+export class GameCharecterFactory {
   public static getWarrior(level: number): GameCharecter {
     if (10 > level)
       return {
