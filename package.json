@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@types/reflect-metadata": "^0.1.0",
     "inversify": "^5.0.1",
     "lodash": "^4.17.10",
     "node-fetch": "^2.2.0"
