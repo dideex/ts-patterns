@@ -35,10 +35,13 @@ export class CountriesRepository {
     })
   }
 
-  async allByCurrency(currency: string): Promise<Country[]> {}
+  async allByCurrency(currency: string): Promise<Country[]> {
+    let all = await this.all()
+    return all.filter(country => country.currency === currency)
+  }
 
   private continentToFileName(continent: Continent) {
-    const prefix: string = 'fixtures/'
+    const prefix: string = 'ts/fixtures/'
     const fileNames: any = {}
     fileNames[Continent.Asia] = 'asia.json'
     fileNames[Continent.Europe] = 'europe.json'

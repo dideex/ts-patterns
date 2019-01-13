@@ -1,5 +1,6 @@
 [
   { "name": "UK", "capital": "Londong", "currency": "GBP" },
   { "name": "France", "capital": "Paris", "currency": "EUR" },
+  { "name": "Belgium", "capital": "Brucel", "currency": "EUR" },
   { "name": "Russia", "capital": "Moscow", "currency": "RUR" }
 ]
