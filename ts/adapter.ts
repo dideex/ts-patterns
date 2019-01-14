@@ -21,6 +21,6 @@ countriesRepo.allByContinent(Continent.Asia).then(asiaCountries => {
 // Adapter v2
 
 let restCountries = new RestCountries()
-restCountries.getByRegion('North America').then(northAmericaCountries => {
-  console.log('​northAmericaCountries', northAmericaCountries)
+restCountries.getByRegion('Americas').then(northAmericaCountries => {
+  console.log('​northAmericaCountries', northAmericaCountries.length)
 })

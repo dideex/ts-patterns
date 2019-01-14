@@ -1,12 +1,15 @@
 import { Country } from './adapter'
 import fs from 'fs'
+import { ICountriesRepository } from './fixtures-repository.interface'
 
 export enum Continent {
   Asia = 'Asia',
-  Europe = 'Europe'
+  Europe = 'Europe',
+  NorthAmerica = 'NorthAmerica',
+  SouthAmerica = 'SouthAmerica'
 }
 
-export class CountriesRepository {
+export class CountriesRepository implements ICountriesRepository {
   async all(): Promise<Country[]> {
     return Promise.all(
       [Continent.Asia, Continent.Europe].map(continent =>
