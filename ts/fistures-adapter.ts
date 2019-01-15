@@ -36,7 +36,17 @@ export class RestCountriesAdapter implements ICountriesRepository {
       region = Continent[continent]
     }
     const restCountries = await this._restCountriestApi.getByRegion(region)
-    return this.restCountriesToCountries(restCountries)
+    let result = []
+
+    if(continent == Continent.NorthAmerica) {
+      result = restCountries.filter(({subregion}) => subregion === "Northern America")
+    } else if(continent === Continent.SouthAmerica) {
+      result = restCountries.filter(({subregion}) => subregion === 'South America')
+    } else {
+      result = restCountries
+    }
+
+    return this.restCountriesToCountries(result)
   }
 
   async allByCurrency(currency: string): Promise<Country[]> {

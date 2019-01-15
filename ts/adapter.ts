@@ -1,5 +1,6 @@
 import { CountriesRepository, Continent } from './fixtures-repository'
 import { RestCountries } from './utils/rest-countries'
+import { RestCountriesAdapter } from './fistures-adapter'
 
 export interface Country {
   name: string
@@ -20,7 +21,13 @@ countriesRepo.allByContinent(Continent.Asia).then(asiaCountries => {
 
 // Adapter v2
 
-let restCountries = new RestCountries()
-restCountries.getByRegion('Americas').then(northAmericaCountries => {
-  console.log('​northAmericaCountries', northAmericaCountries.length)
+const restCountries = new RestCountriesAdapter(new RestCountries())
+
+restCountries.allByContinent(Continent.NorthAmerica).then(northAmerica => {
+  console.log(
+    `Number of north american countries stored: ${northAmerica.length}`
+  )
 })
+// restCountries.getByRegion('Americas').then(northAmericaCountries => {
+//   console.log('​northAmericaCountries', northAmericaCountries.length)
+// })
