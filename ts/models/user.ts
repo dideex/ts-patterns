@@ -1,12 +1,14 @@
+export interface Geo {
+  lat: number
+  lng: number
+}
+
 export interface Address {
   street: string
   suite: string
   city: string
   zipcode: string
-  geo: {
-    lat: number
-    lng: number
-  }
+  geo: Geo
 }
 
 export interface Company {
