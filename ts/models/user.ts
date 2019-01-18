@@ -1,3 +1,6 @@
+import { Post } from "./post";
+import { Todo } from "./todo";
+
 export interface Geo {
   lat: number
   lng: number
@@ -25,4 +28,6 @@ export interface User {
   phone: string
   website: string
   company: Company
+  posts: Post[]
+  todos: Todo[]
 }

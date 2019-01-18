@@ -2,11 +2,11 @@ import axios from 'axios'
 import { IJsonPlaceholderService } from './ijson-placeholder-service'
 import { Album, Comment, Photo, Post, Todo, User } from '../models'
 
-export class JsonPlaceholder implements IJsonPlaceholderService {
+export class JsonPlaceholderService implements IJsonPlaceholderService {
   private _baseUrl: string = 'https://jsonplaceholder.typicode.com'
 
   private _getEntity<T>(url: string): Promise<T[]> {
-    return axios.get(url).then(response => JSON.parse(response.data) as T[])
+    return axios.get(url).then(({data}) => data as T[])
   }
 
   private _endpoints = {
