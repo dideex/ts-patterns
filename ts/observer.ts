@@ -2,7 +2,7 @@ import { Car } from './classes'
 
 testObserver()
 
-function sleep(duration: number): Promise<any> {
+export function sleep(duration: number): Promise<any> {
   return new Promise((resolve, reject) => {
     setTimeout(resolve, duration)
   })
