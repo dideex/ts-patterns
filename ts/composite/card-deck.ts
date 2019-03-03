@@ -8,13 +8,11 @@ export class CardDeck implements ICardComponent {
   private _deck: ICardComponent[] = []
 
   add(component: ICardComponent): void {
-    console.log('​CardDeck -> component', component)
     if (component) {
       this._deck.push(component)
     } else {
       throwErr()
     }
-    console.log('this._deck ', this._deck)
   }
   remove(component: ICardComponent): void {
     if (component) {

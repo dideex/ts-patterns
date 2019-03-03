@@ -7,6 +7,7 @@ export class CommandWorker {
 
   constructor(interval: number) {
     this._interval = interval
+    this.startWorker()
   }
 
   registerCommand(command: ICommand) {

@@ -87,6 +87,11 @@ interface IDevice {
 7. Dependency Injection fabric decorators
 8. Adapter
 9. Facade
+10. Composit Pattern
+11. Strategy Pattern
+12. Observer
+13. Command pattern
+14. Template method
 
 ## 1. Singelton
 
@@ -258,3 +263,98 @@ facade.getUser(1).then(user => {
   ...
 })
 ```
+
+## 10. Composit Pattern
+
+- Used to create part-whole collections in the form of tree-like structures that can contain both individual items and collections as well
+
+```TypeScript
+const cardDeck = new CardDeck()
+const secondDeck = new CardDeck()
+
+cardDeck.add(secondDeck)
+```
+
+_ts/composite_
+
+## 11. Strategy Pattern
+
+- Pick the ability of the most appropriate algorithm from a group of similar algorithms
+
+```TypeScript
+export class ErrorHandler {
+  constructor(
+    private _displayStrategy: IErrorDisplayStrategy,
+    private _loggingStrategy: IErrorLogginStartegy
+  ) {}
+
+  handle(err: Error, title: string, body: string): Promise<any> {
+    this._displayStrategy.display(title, body)
+    return this._loggingStrategy.log(err)
+  }
+}
+
+
+export class ConsoleErrorStartegy implements IErrorDisplayStrategy {
+  ...
+}
+
+export class FileErrorLogginStrategy implements IErrorLogginStartegy {
+  ...
+}
+
+
+
+const errorHandler = new ErrorHandler(
+  new ConsoleErrorStartegy(),
+  new FileErrorLogginStrategy()
+)
+
+```
+
+_ts/error-handler-strategy.ts_
+
+## 12. Observer
+
+- Register one or more listeners to the property. Every time that property changes we trigger an event that notyfice all the observers
+
+```TypeScript
+export class Car {
+
+  set currentSpeed(speed: number) {
+    if (this._currentSpeed !== speed) {
+      ...
+      this.tirggerCurrentSpeedObserver(speed, oldValue)
+  }
+
+  registerCurrentSpeedObserver(observer: Function) {
+    if (!this._currentSpeedObserver.find(o => o === observer)) {
+      this._currentSpeedObserver.push(observer)
+    }
+  }
+
+  tirggerCurrentSpeedObserver(newValue: number, oldValue: number) {
+    this._currentSpeedObserver.forEach(observer => observer(newValue, oldValue))
+  }
+}
+
+```
+
+_ts/observer.ts_
+
+## 13. Command pattern
+
+- Define separate (command) objects that encapsulate a request.
+- A class delegates a request to a command object instead of implementing a particular request directly.
+
+```TypeScript
+
+```
+
+_ts/command.ts_
+
+## 14. Template method
+
+- The template method uses unheritance to delegate the implementation responsibility for different parts of an aloorithm to subclasses
+
+_ts/template.ts_
