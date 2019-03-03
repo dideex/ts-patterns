@@ -169,7 +169,8 @@ export class GameCharactersPool {
 ## 5. Dependency Injection
 
 - The ability to make use of code metadata to provide runtime information and inspection data about classes, interfaces and types
-  _ts/ioc-container.ts_
+
+_ts/ioc-container.ts_
 
 ```TypeScript
 class concreteC implements IDepC {
@@ -346,10 +347,6 @@ _ts/observer.ts_
 
 - Define separate (command) objects that encapsulate a request.
 - A class delegates a request to a command object instead of implementing a particular request directly.
-
-```TypeScript
-
-```
 
 _ts/command.ts_
 
