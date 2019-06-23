@@ -4,7 +4,7 @@ const useForm = () => {
     setState((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.value,
-    })
+    }))
   }, [setState]);
   return [formState, onChange]
 }
